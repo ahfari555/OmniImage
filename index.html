@@ -6,8 +6,8 @@
   
   <!-- SEO Meta Tags -->
   <title>OmniImage - Free Online Image Toolkit (Compress, Resize & Convert)</title>
-  <meta name="description" content="100% free, secure, and browser-based online image tools. Compress PNG/JPG, resize dimensions, and convert images to WebP instantly without server uploads.">
-  <meta name="keywords" content="compress image online, resize image, convert to webp, image optimizer, free photo tools, client side image editor">
+  <meta name="description" content="100% free, secure, and browser-based online image tools. Compress PNG/JPG, resize dimensions, and convert images to WebP, PNG, or JPG instantly without server uploads.">
+  <meta name="keywords" content="compress image online, resize image, convert to webp, jpg to png converter, image optimizer, free photo tools, client side image editor">
   <meta name="author" content="OmniImage">
   <meta name="robots" content="index, follow">
 
@@ -152,19 +152,28 @@
         <button onclick="processResizeImage()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Resize & Download</button>
       </div>
 
-      <!-- TOOL 3: CONVERT TO WEBP -->
+      <!-- TOOL 3: MULTI-FORMAT IMAGE CONVERTER -->
       <div class="pastel-card p-6 rounded-3xl transition duration-300 hover:shadow-xl flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🔄</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Convert to WebP</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-6">Convert PNG or JPEG images to modern WebP format for fast web loading.</p>
+          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Image Converter</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Convert images between JPG, PNG, and WebP formats instantly.</p>
           
-          <input type="file" id="webpInput" accept="image/jpeg, image/png" class="hidden" onchange="handleWebpदFile(this)">
-          <label for="webpInput" class="block w-full border-2 border-dashed border-purple-200 dark:border-purple-800 hover:border-purple-400 rounded-2xl p-4 text-center cursor-pointer bg-purple-50/50 dark:bg-purple-950/30 transition mb-3">
-            <span class="text-xs font-bold text-purple-700 dark:text-purple-300 block" id="webpLabel">Select Image</span>
+          <input type="file" id="convertInput" accept="image/jpeg, image/png, image/webp" class="hidden" onchange="handleConvertFile(this)">
+          <label for="convertInput" class="block w-full border-2 border-dashed border-purple-200 dark:border-purple-800 hover:border-purple-400 rounded-2xl p-3 text-center cursor-pointer bg-purple-50/50 dark:bg-purple-950/30 transition mb-3">
+            <span class="text-xs font-bold text-purple-700 dark:text-purple-300 block" id="convertLabel">Select Image</span>
           </label>
+
+          <div class="mb-3">
+            <label class="text-[10px] font-bold text-slate-500 block mb-1">Target Format:</label>
+            <select id="targetFormat" class="w-full bg-slate-50 dark:bg-slate-800 border border-purple-200 dark:border-purple-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
+              <option value="image/jpeg">JPG / JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
         </div>
-        <button onclick="processConvertToWebP()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Convert to WebP</button>
+        <button onclick="processImageConverter()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Convert & Download</button>
       </div>
 
     </div>
@@ -218,7 +227,6 @@
       resizeFileObj = input.files[0];
       if(resizeFileObj) {
         document.getElementById('resizeLabel').innerText = "Selected: " + resizeFileObj.name;
-        // Auto load original dimensions
         const reader = new FileReader();
         reader.onload = e => {
           const img = new Image();
@@ -239,19 +247,27 @@
       processImageCanvas(resizeFileObj, w, h, 0.9, 'image/jpeg', 'resized_image.jpg');
     }
 
-    // WebP Converter Logic
-    let webpFileObj = null;
-    function handleWebpदFile(input) {
-      webpFileObj = input.files[0];
-      if(webpFileObj) {
-        document.getElementById('webpLabel').innerText = "Selected: " + webpFileObj.name;
+    // Multi-Format Image Converter Logic
+    let convertFileObj = null;
+    function handleConvertFile(input) {
+      convertFileObj = input.files[0];
+      if(convertFileObj) {
+        document.getElementById('convertLabel').innerText = "Selected: " + convertFileObj.name;
       }
     }
 
-    async function processConvertToWebP() {
-      if(!webpFileObj) { alert('Please select an image first.'); return; }
-      const newName = webpFileObj.name.replace(/\.[^/.]+$/, "") + ".webp";
-      processImageCanvas(webpFileObj, null, null, 0.9, 'image/webp', newName);
+    async function processImageConverter() {
+      if(!convertFileObj) { alert('Please select an image first.'); return; }
+      const mimeType = document.getElementById('targetFormat').value;
+      
+      let ext = 'jpg';
+      if(mimeType === 'image/png') ext = 'png';
+      if(mimeType === 'image/webp') ext = 'webp';
+
+      const baseName = convertFileObj.name.replace(/\.[^/.]+$/, "");
+      const newName = `${baseName}_converted.${ext}`;
+      
+      processImageCanvas(convertFileObj, null, null, 0.95, mimeType, newName);
     }
 
     // Core Canvas Processing Helper
