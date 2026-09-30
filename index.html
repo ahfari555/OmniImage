@@ -67,9 +67,9 @@
     }
     .hero-glow {
       position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(5,150,105,0.12) 0%, rgba(37,99,235,0.05) 70%, transparent 100%);
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(5,150,105,0.18) 0%, rgba(37,99,235,0.08) 60%, transparent 100%);
       z-index: 0;
       pointer-events: none;
       border-radius: 50%;
@@ -81,8 +81,8 @@
     .modal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
     html.dark .modal-content ul { color: #cbd5e1; }
     .modal-content li { margin-bottom: 0.4rem; }
-    @keyframes pulse-slow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-    .animate-pulse-slow { animation: pulse-slow 4s infinite ease-in-out; }
+    @keyframes float-slow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .animate-float { animation: float-slow 4s ease-in-out infinite; }
   </style>
 </head>
 <body class="font-sans min-h-screen flex flex-col antialiased text-slate-800 dark:text-slate-100">
@@ -109,36 +109,59 @@
     </div>
   </header>
 
-  <!-- HERO SECTION WITH CUSTOM SVG ILLUSTRATION -->
-  <div class="hero-glow top-20 left-1/2 -translate-x-1/2"></div>
+  <!-- HERO SECTION WITH ENHANCED CUSTOM SVG ILLUSTRATION -->
+  <div class="hero-glow top-24 left-1/2 -translate-x-1/2"></div>
   <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center relative z-10">
-    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-100 dark:border-emerald-900 mb-3 inline-block">Pro Image Processing Suite</span>
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 mb-4 shadow-sm">
+      ✨ Next-Gen Browser Image Processing Suite
+    </div>
     
-    <!-- CUSTOM SVG HERO ILLUSTRATION -->
-    <div class="max-w-sm mx-auto my-6 animate-pulse-slow">
-      <svg viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-xl">
+    <!-- ENHANCED DYNAMIC SVG HERO ILLUSTRATION -->
+    <div class="max-w-md mx-auto my-6 animate-float">
+      <svg viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
         <defs>
-          <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#059669" />
             <stop offset="50%" stop-color="#2563eb" />
             <stop offset="100%" stop-color="#9333ea" />
           </linearGradient>
+          <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#f8fafc" stop-opacity="0.8" />
+          </linearGradient>
         </defs>
-        <rect x="30" y="20" width="340" height="140" rx="24" fill="url(#heroGrad)" fill-opacity="0.08" stroke="url(#heroGrad)" stroke-width="2" stroke-dasharray="6 4" />
-        <circle cx="120" cy="90" r="35" fill="url(#heroGrad)" fill-opacity="0.2" />
-        <path d="M 80 120 L 140 70 L 190 110 L 230 85 L 300 120 Z" fill="url(#heroGrad)" fill-opacity="0.4" />
-        <circle cx="280" cy="65" r="15" fill="url(#heroGrad)" fill-opacity="0.6" />
-        <g transform="translate(140, 25)">
-          <rect width="120" height="32" rx="10" fill="#ffffff" class="dark:fill-slate-800" stroke="#059669" stroke-width="1.5" />
-          <text x="60" y="20" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold">⚡ WebP / JPG / PNG</text>
+
+        <!-- Background Glow Card -->
+        <rect x="40" y="20" width="420" height="180" rx="30" fill="url(#mainGrad)" fill-opacity="0.06" stroke="url(#mainGrad)" stroke-width="2" stroke-dasharray="8 6" />
+
+        <!-- Mock Image Preview Node -->
+        <rect x="70" y="50" width="160" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#cbd5e1" stroke-width="1.5" />
+        <circle cx="105" cy="85" r="14" fill="#10b981" fill-opacity="0.3" />
+        <path d="M 85 145 L 120 110 L 150 130 L 185 95 L 210 145 Z" fill="#3b82f6" fill-opacity="0.35" />
+
+        <!-- Processing Arrow / Flow line -->
+        <path d="M 245 110 L 275 110" stroke="url(#mainGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 6" />
+        <polygon points="275,103 290,110 275,117" fill="#2563eb" />
+
+        <!-- Optimized Result Node -->
+        <rect x="300" y="50" width="130" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#10b981" stroke-width="2" />
+        <text x="365" y="85" text-anchor="middle" fill="#059669" font-size="12" font-weight="extrabold">⚡ WebP Ready</text>
+        <text x="365" y="115" text-anchor="middle" fill="#64748b" font-size="10" font-weight="bold">-75% Size Saved</text>
+        <rect x="325" y="130" width="80" height="20" rx="6" fill="#10b981" />
+        <text x="365" y="144" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">DOWNLOAD</text>
+
+        <!-- Floating Badge Top -->
+        <g transform="translate(180, 20)">
+          <rect width="140" height="32" rx="12" fill="#ffffff" class="dark:fill-slate-800" stroke="#9333ea" stroke-width="1.5" />
+          <text x="70" y="21" text-anchor="middle" fill="#9333ea" font-size="11" font-weight="bold">🛡️ Zero Server Upload</text>
         </g>
       </svg>
     </div>
 
-    <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3">
+    <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3 leading-tight">
       Optimize, Convert & Edit <span class="gradient-text">Instantly.</span>
     </h1>
-    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium">
+    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium leading-relaxed">
       Full professional-grade image processing directly in your browser. Zero server uploads, instant results.
     </p>
   </section>
@@ -309,12 +332,12 @@
             <p class='text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-2'>WebP Performance Optimization</p>
           </div>
           <h3>Why WebP Dominates Modern Web Speed</h3>
-          <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster.</p>
-          <p>Compared to traditional PNG and JPEG formats, WebP lossless images are up to 26% smaller, and WebP lossy images are 25-34% smaller at equivalent structural similarity (SSIM) quality index.</p>
+          <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster[cite: 5].</p>
+          <p>Compared to traditional PNG and JPEG formats, WebP lossless images are up to 26% smaller, and WebP lossy images are 25-34% smaller at equivalent structural similarity (SSIM) quality index[cite: 5].</p>
           <ul>
-            <li><strong>Smaller Payloads:</strong> Drastically reduces Core Web Vitals Largest Contentful Paint (LCP) times.</li>
-            <li><strong>Alpha Transparency:</strong> Supports transparency just like PNG while maintaining smaller sizes.</li>
-            <li><strong>Browser Support:</strong> Fully supported across all modern browsers and mobile devices.</li>
+            <li><strong>Smaller Payloads:</strong> Drastically reduces Core Web Vitals Largest Contentful Paint (LCP) times[cite: 5].</li>
+            <li><strong>Alpha Transparency:</strong> Supports transparency just like PNG while maintaining smaller sizes[cite: 5].</li>
+            <li><strong>Browser Support:</strong> Fully supported across all modern browsers and mobile devices[cite: 5].</li>
           </ul>
         `)">
           <div>
@@ -338,11 +361,11 @@
             <p class='text-xs font-bold text-blue-600 dark:text-blue-400 mt-2'>Compression Algorithms Deep Dive</p>
           </div>
           <h3>Choosing the Right Compression Strategy</h3>
-          <p>Image compression is the art of reducing file sizes without sacrificing noticeable visual fidelity. Understanding the difference between lossy and lossless algorithms is critical for photographers and web designers.</p>
-          <p>Lossless compression retains every single bit of original data, meaning the restored image is an exact replica of the original. Lossy compression permanently removes redundant pixel data that human eyes can hardly perceive.</p>
+          <p>Image compression is the art of reducing file sizes without sacrificing noticeable visual fidelity. Understanding the difference between lossy and lossless algorithms is critical for photographers and web designers[cite: 5].</p>
+          <p>Lossless compression retains every single bit of original data, meaning the restored image is an exact replica of the original[cite: 5]. Lossy compression permanently removes redundant pixel data that human eyes can hardly perceive[cite: 5].</p>
           <ul>
-            <li><strong>Lossless (PNG):</strong> Ideal for logos, graphics, and medical imaging where exact precision is required.</li>
-            <li><strong>Lossy (JPG/WebP):</strong> Perfect for digital photography and complex web backgrounds where massive file reduction is needed.</li>
+            <li><strong>Lossless (PNG):</strong> Ideal for logos, graphics, and medical imaging where exact precision is required[cite: 5].</li>
+            <li><strong>Lossy (JPG/WebP):</strong> Perfect for digital photography and complex web backgrounds where massive file reduction is needed[cite: 5].</li>
           </ul>
         `)">
           <div>
@@ -366,12 +389,12 @@
             <p class='text-xs font-bold text-purple-600 dark:text-purple-400 mt-2'>Zero Server Upload Security</p>
           </div>
           <h3>Why Browser-Based Processing is Superior</h3>
-          <p>Traditional online image editors require uploading your confidential photos, passport scans, or professional artwork to third-party remote servers. This introduces significant privacy risks and network latency.</p>
-          <p>OmniImage leverages advanced HTML5 Canvas and Web APIs to execute all transformations entirely inside your local web browser sandbox. Your images never leave your device.</p>
+          <p>Traditional online image editors require uploading your confidential photos, passport scans, or professional artwork to third-party remote servers. This introduces significant privacy risks and network latency[cite: 5].</p>
+          <p>OmniImage leverages advanced HTML5 Canvas and Web APIs to execute all transformations entirely inside your local web browser sandbox. Your images never leave your device[cite: 5].</p>
           <ul>
-            <li><strong>Absolute Privacy:</strong> Zero risk of data breaches or unauthorized server retention.</li>
-            <li><strong>Instant Speeds:</strong> No waiting for file uploads and downloads over slow internet connections.</li>
-            <li><strong>Offline Capability:</strong> Process images anywhere, anytime.</li>
+            <li><strong>Absolute Privacy:</strong> Zero risk of data breaches or unauthorized server retention[cite: 5].</li>
+            <li><strong>Instant Speeds:</strong> No waiting for file uploads and downloads over slow internet connections[cite: 5].</li>
+            <li><strong>Offline Capability:</strong> Process images anywhere, anytime[cite: 5].</li>
           </ul>
         `)">
           <div>
@@ -403,7 +426,7 @@
       <h2 id="modalTitle" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight">Title</h2>
       <div id="modalBody" class="modal-content space-y-4 text-slate-700 dark:text-slate-300"></div>
       <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-        <button onclick="window.print()" class="text-xs font-bold text-emerald-600 hover:underline">🖨️️ Print Article</button>
+        <button onclick="window.print()" class="text-xs font-bold text-emerald-600 hover:underline">🖨 Print Article</button>
         <button onclick="closeModal()" class="bg-emerald-600 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-lg">Close Panel</button>
       </div>
     </div>
