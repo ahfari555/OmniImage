@@ -74,13 +74,14 @@
       pointer-events: none;
       border-radius: 50%;
     }
-    .modal-content h3 { font-size: 1.35rem; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #059669; }
-    html.dark .modal-content h3 { color: #34d399; }
-    .modal-content p { font-size: 0.95rem; line-height: 1.8; color: #475569; margin-bottom: 1rem; }
-    html.dark .modal-content p { color: #cbd5e1; }
-    .modal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
-    html.dark .modal-content ul { color: #cbd5e1; }
-    .modal-content li { margin-bottom: 0.4rem; }
+    /* Full Page Article Styling */
+    .article-body h3 { font-size: 1.5rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; color: #059669; }
+    html.dark .article-body h3 { color: #34d399; }
+    .article-body p { font-size: 1.05rem; line-height: 2; color: #475569; margin-bottom: 1.25rem; }
+    html.dark .article-body p { color: #cbd5e1; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; }
+    html.dark .article-body ul { color: #cbd5e1; }
+    .article-body li { margin-bottom: 0.5rem; font-size: 1rem; }
     @keyframes float-slow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
     .animate-float { animation: float-slow 4s ease-in-out infinite; }
   </style>
@@ -109,326 +110,318 @@
     </div>
   </header>
 
-  <!-- HERO SECTION WITH ENHANCED CUSTOM SVG ILLUSTRATION -->
-  <div class="hero-glow top-24 left-1/2 -translate-x-1/2"></div>
-  <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center relative z-10">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 mb-4 shadow-sm">
-      ✨ Next-Gen Browser Image Processing Suite
-    </div>
-    
-    <!-- ENHANCED DYNAMIC SVG HERO ILLUSTRATION -->
-    <div class="max-w-md mx-auto my-6 animate-float">
-      <svg viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
-        <defs>
-          <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#059669" />
-            <stop offset="50%" stop-color="#2563eb" />
-            <stop offset="100%" stop-color="#9333ea" />
-          </linearGradient>
-          <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#f8fafc" stop-opacity="0.8" />
-          </linearGradient>
-        </defs>
-
-        <!-- Background Glow Card -->
-        <rect x="40" y="20" width="420" height="180" rx="30" fill="url(#mainGrad)" fill-opacity="0.06" stroke="url(#mainGrad)" stroke-width="2" stroke-dasharray="8 6" />
-
-        <!-- Mock Image Preview Node -->
-        <rect x="70" y="50" width="160" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#cbd5e1" stroke-width="1.5" />
-        <circle cx="105" cy="85" r="14" fill="#10b981" fill-opacity="0.3" />
-        <path d="M 85 145 L 120 110 L 150 130 L 185 95 L 210 145 Z" fill="#3b82f6" fill-opacity="0.35" />
-
-        <!-- Processing Arrow / Flow line -->
-        <path d="M 245 110 L 275 110" stroke="url(#mainGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 6" />
-        <polygon points="275,103 290,110 275,117" fill="#2563eb" />
-
-        <!-- Optimized Result Node -->
-        <rect x="300" y="50" width="130" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#10b981" stroke-width="2" />
-        <text x="365" y="85" text-anchor="middle" fill="#059669" font-size="12" font-weight="extrabold">⚡ WebP Ready</text>
-        <text x="365" y="115" text-anchor="middle" fill="#64748b" font-size="10" font-weight="bold">-75% Size Saved</text>
-        <rect x="325" y="130" width="80" height="20" rx="6" fill="#10b981" />
-        <text x="365" y="144" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">DOWNLOAD</text>
-
-        <!-- Floating Badge Top -->
-        <g transform="translate(180, 20)">
-          <rect width="140" height="32" rx="12" fill="#ffffff" class="dark:fill-slate-800" stroke="#9333ea" stroke-width="1.5" />
-          <text x="70" y="21" text-anchor="middle" fill="#9333ea" font-size="11" font-weight="bold">🛡️ Zero Server Upload</text>
-        </g>
-      </svg>
-    </div>
-
-    <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3 leading-tight">
-      Optimize, Convert & Edit <span class="gradient-text">Instantly.</span>
-    </h1>
-    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium leading-relaxed">
-      Full professional-grade image processing directly in your browser. Zero server uploads, instant results.
-    </p>
-  </section>
-
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- TOOL 1: COMPRESS IMAGE -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🗜️</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Compress Image</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Reduce file size of JPG/PNG images with precision quality control.</p>
-          
-          <input type="file" id="compressInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'compress')">
-          <label for="compressInput" id="compressDropZone" class="block w-full border-2 border-dashed border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 rounded-2xl p-4 text-center cursor-pointer bg-emerald-50/50 dark:bg-emerald-950/30 transition mb-3">
-            <span class="text-xs font-bold text-emerald-700 dark:text-emerald-300 block" id="compressLabel">Click or Drop Image Here</span>
-          </label>
-
-          <div class="mb-4">
-            <div class="flex justify-between text-xs font-semibold mb-1">
-              <span class="text-slate-500">Quality:</span>
-              <span id="qualityVal" class="text-emerald-600 dark:text-emerald-400 font-bold">80%</span>
-            </div>
-            <input type="range" id="qualityRange" min="10" max="100" value="80" class="w-full accent-emerald-600 cursor-pointer" oninput="document.getElementById('qualityVal').innerText = this.value + '%'">
-          </div>
-        </div>
-        <button onclick="processCompress()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Compress & Download</button>
+  <!-- MAIN APP VIEW (HOME) -->
+  <div id="homeView">
+    <!-- HERO SECTION WITH DYNAMIC SVG ILLUSTRATION -->
+    <div class="hero-glow top-24 left-1/2 -translate-x-1/2"></div>
+    <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 mb-4 shadow-sm">
+        ✨ Next-Gen Browser Image Processing Suite
+      </div>
+      
+      <!-- ENHANCED DYNAMIC SVG HERO ILLUSTRATION -->
+      <div class="max-w-md mx-auto my-6 animate-float">
+        <svg viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+          <defs>
+            <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="50%" stop-color="#2563eb" />
+              <stop offset="100%" stop-color="#9333ea" />
+            </linearGradient>
+          </defs>
+          <rect x="40" y="20" width="420" height="180" rx="30" fill="url(#mainGrad)" fill-opacity="0.06" stroke="url(#mainGrad)" stroke-width="2" stroke-dasharray="8 6" />
+          <rect x="70" y="50" width="160" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#cbd5e1" stroke-width="1.5" />
+          <circle cx="105" cy="85" r="14" fill="#10b981" fill-opacity="0.3" />
+          <path d="M 85 145 L 120 110 L 150 130 L 185 95 L 210 145 Z" fill="#3b82f6" fill-opacity="0.35" />
+          <path d="M 245 110 L 275 110" stroke="url(#mainGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 6" />
+          <polygon points="275,103 290,110 275,117" fill="#2563eb" />
+          <rect x="300" y="50" width="130" height="120" rx="16" fill="#ffffff" class="dark:fill-slate-800" stroke="#10b981" stroke-width="2" />
+          <text x="365" y="85" text-anchor="middle" fill="#059669" font-size="12" font-weight="extrabold">⚡ WebP Ready</text>
+          <text x="365" y="115" text-anchor="middle" fill="#64748b" font-size="10" font-weight="bold">-75% Size Saved</text>
+          <rect x="325" y="130" width="80" height="20" rx="6" fill="#10b981" />
+          <text x="365" y="144" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">DOWNLOAD</text>
+          <g transform="translate(180, 20)">
+            <rect width="140" height="32" rx="12" fill="#ffffff" class="dark:fill-slate-800" stroke="#9333ea" stroke-width="1.5" />
+            <text x="70" y="21" text-anchor="middle" fill="#9333ea" font-size="11" font-weight="bold">🛡️ Zero Server Upload</text>
+          </g>
+        </svg>
       </div>
 
-      <!-- TOOL 2: RESIZE IMAGE -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">📐</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Resize Image</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Change custom width and height dimensions in pixels easily.</p>
-          
-          <input type="file" id="resizeInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'resize')">
-          <label for="resizeInput" id="resizeDropZone" class="block w-full border-2 border-dashed border-blue-200 dark:border-blue-800 hover:border-blue-400 rounded-2xl p-3 text-center cursor-pointer bg-blue-50/50 dark:bg-blue-950/30 transition mb-3">
-            <span class="text-xs font-bold text-blue-700 dark:text-blue-300 block" id="resizeLabel">Click or Drop Image Here</span>
-          </label>
-
-          <div class="grid grid-cols-2 gap-2 mb-3">
-            <div>
-              <label class="text-[10px] font-bold text-slate-500 block mb-1">Width (px):</label>
-              <input type="number" id="resizeWidth" value="800" class="w-full bg-slate-50 dark:bg-slate-800 border border-blue-200 dark:border-blue-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none">
-            </div>
-            <div>
-              <label class="text-[10px] font-bold text-slate-500 block mb-1">Height (px):</label>
-              <input type="number" id="resizeHeight" value="600" class="w-full bg-slate-50 dark:bg-slate-800 border border-blue-200 dark:border-blue-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none">
-            </div>
-          </div>
-        </div>
-        <button onclick="processResize()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Resize & Download</button>
-      </div>
-
-      <!-- TOOL 3: FORMAT CONVERTER -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🔄</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Image Converter</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Convert images seamlessly between JPG, PNG, and WebP formats.</p>
-          
-          <input type="file" id="convertInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'convert')">
-          <label for="convertInput" id="convertDropZone" class="block w-full border-2 border-dashed border-purple-200 dark:border-purple-800 hover:border-purple-400 rounded-2xl p-3 text-center cursor-pointer bg-purple-50/50 dark:bg-purple-950/30 transition mb-3">
-            <span class="text-xs font-bold text-purple-700 dark:text-purple-300 block" id="convertLabel">Click or Drop Image Here</span>
-          </label>
-
-          <div class="mb-3">
-            <label class="text-[10px] font-bold text-slate-500 block mb-1">Target Format:</label>
-            <select id="targetFormat" class="w-full bg-slate-50 dark:bg-slate-800 border border-purple-200 dark:border-purple-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
-              <option value="image/jpeg">JPG / JPEG</option>
-              <option value="image/png">PNG</option>
-              <option value="image/webp">WebP</option>
-            </select>
-          </div>
-        </div>
-        <button onclick="processConvert()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Convert & Download</button>
-      </div>
-
-      <!-- TOOL 4: ROTATE & FLIP -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/60 text-amber-600 dark:text-amber-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🔃</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Rotate & Flip</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Rotate images by 90 degrees or mirror flip them horizontally.</p>
-          
-          <input type="file" id="rotateInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'rotate')">
-          <label for="rotateInput" id="rotateDropZone" class="block w-full border-2 border-dashed border-amber-200 dark:border-amber-800 hover:border-amber-400 rounded-2xl p-3 text-center cursor-pointer bg-amber-50/50 dark:bg-amber-950/30 transition mb-3">
-            <span class="text-xs font-bold text-amber-700 dark:text-amber-300 block" id="rotateLabel">Click or Drop Image Here</span>
-          </label>
-
-          <div class="mb-3">
-            <label class="text-[10px] font-bold text-slate-500 block mb-1">Action Type:</label>
-            <select id="rotateAction" class="w-full bg-slate-50 dark:bg-slate-800 border border-amber-200 dark:border-amber-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
-              <option value="90">Rotate 90° Clockwise</option>
-              <option value="180">Rotate 180°</option>
-              <option value="270">Rotate 270° Clockwise</option>
-              <option value="flipH">Flip Horizontally</option>
-            </select>
-          </div>
-        </div>
-        <button onclick="processRotate()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Rotate & Download</button>
-      </div>
-
-      <!-- TOOL 5: FILTERS & EFFECTS -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">✨</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Filters & Effects</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Apply stunning visual effects like Grayscale or Color Inversion.</p>
-          
-          <input type="file" id="filterInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'filter')">
-          <label for="filterInput" id="filterDropZone" class="block w-full border-2 border-dashed border-rose-200 dark:border-rose-800 hover:border-rose-400 rounded-2xl p-3 text-center cursor-pointer bg-rose-50/50 dark:bg-rose-950/30 transition mb-3">
-            <span class="text-xs font-bold text-rose-700 dark:text-rose-300 block" id="filterLabel">Click or Drop Image Here</span>
-          </label>
-
-          <div class="mb-3">
-            <label class="text-[10px] font-bold text-slate-500 block mb-1">Select Filter:</label>
-            <select id="filterType" class="w-full bg-slate-50 dark:bg-slate-800 border border-rose-200 dark:border-rose-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
-              <option value="grayscale">Grayscale (Black & White)</option>
-              <option value="invert">Invert Colors</option>
-            </select>
-          </div>
-        </div>
-        <button onclick="processFilter()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Apply & Download</button>
-      </div>
-
-      <!-- LIVE PREVIEW CARD -->
-      <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">👁️</div>
-          <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Live Preview & Stats</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Result summary and direct preview display.</p>
-          
-          <div id="previewContainer" class="w-full h-32 bg-slate-100 dark:bg-slate-800/80 rounded-2xl border border-indigo-100 dark:border-indigo-900 flex items-center justify-center overflow-hidden mb-3 relative">
-            <span class="text-xs text-slate-400 font-medium">No output generated yet</span>
-          </div>
-          
-          <div id="statsText" class="text-[11px] font-semibold text-slate-600 dark:text-slate-300 space-y-1">
-            <div>Original Size: <span id="statOrig">-</span></div>
-            <div>New Size: <span id="statNew">-</span></div>
-          </div>
-        </div>
-        <div id="downloadBtnContainer" class="mt-4">
-          <button disabled class="w-full bg-slate-300 dark:bg-slate-800 text-slate-500 font-bold py-3 rounded-2xl text-xs cursor-not-allowed">Ready for Download</button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- INTERACTIVE CLICKABLE EXPERT EDITORIAL PANELS SECTION -->
-    <section id="editorial-panels" class="pt-8">
-      <div class="text-center max-w-3xl mx-auto space-y-3 mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-200">Knowledge Hub</span>
-        <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">Expert Image Processing Guides</h2>
-        <p class="text-sm text-slate-500">Klik pada salah satu panel di bawah ini untuk membuka panduan mendalam seputar optimasi WebP, kompresi lossy vs lossless, dan performa web.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Panel 1 -->
-        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-emerald-500/20" onclick="openModal('The Ultimate Guide to Next-Gen Image Formats (WebP)', 'Masterclass #1', `
-          <div class='mb-4 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 p-4 rounded-2xl border border-emerald-500/20 text-center'>
-            <span class='text-4xl'>🚀</span>
-            <p class='text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-2'>WebP Performance Optimization</p>
-          </div>
-          <h3>Why WebP Dominates Modern Web Speed</h3>
-          <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster[cite: 5].</p>
-          <p>Compared to traditional PNG and JPEG formats, WebP lossless images are up to 26% smaller, and WebP lossy images are 25-34% smaller at equivalent structural similarity (SSIM) quality index[cite: 5].</p>
-          <ul>
-            <li><strong>Smaller Payloads:</strong> Drastically reduces Core Web Vitals Largest Contentful Paint (LCP) times[cite: 5].</li>
-            <li><strong>Alpha Transparency:</strong> Supports transparency just like PNG while maintaining smaller sizes[cite: 5].</li>
-            <li><strong>Browser Support:</strong> Fully supported across all modern browsers and mobile devices[cite: 5].</li>
-          </ul>
-        `)">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-50 dark:bg-emerald-950 text-emerald-600 border border-emerald-200">Masterclass #1</span>
-              <span class="text-xs text-slate-400 font-semibold">1,200 Words</span>
-            </div>
-            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Guide to Next-Gen WebP Formats</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pahami bagaimana format WebP mempercepat loading situs web hingga 30% dibandingkan JPEG konvensional.</p>
-          </div>
-          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <span class="text-xs font-extrabold text-emerald-600 hover:underline">Read Masterclass →</span>
-            <span class="text-xs font-bold bg-emerald-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
-          </div>
-        </div>
-
-        <!-- Panel 2 -->
-        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-blue-500/20" onclick="openModal('Lossy vs Lossless Image Compression Explained', 'Masterclass #2', `
-          <div class='mb-4 bg-gradient-to-r from-blue-500/15 to-purple-500/15 p-4 rounded-2xl border border-blue-500/20 text-center'>
-            <span class='text-4xl'>🗜️</span>
-            <p class='text-xs font-bold text-blue-600 dark:text-blue-400 mt-2'>Compression Algorithms Deep Dive</p>
-          </div>
-          <h3>Choosing the Right Compression Strategy</h3>
-          <p>Image compression is the art of reducing file sizes without sacrificing noticeable visual fidelity. Understanding the difference between lossy and lossless algorithms is critical for photographers and web designers[cite: 5].</p>
-          <p>Lossless compression retains every single bit of original data, meaning the restored image is an exact replica of the original[cite: 5]. Lossy compression permanently removes redundant pixel data that human eyes can hardly perceive[cite: 5].</p>
-          <ul>
-            <li><strong>Lossless (PNG):</strong> Ideal for logos, graphics, and medical imaging where exact precision is required[cite: 5].</li>
-            <li><strong>Lossy (JPG/WebP):</strong> Perfect for digital photography and complex web backgrounds where massive file reduction is needed[cite: 5].</li>
-          </ul>
-        `)">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-blue-50 dark:bg-blue-950 text-blue-600 border border-blue-200">Masterclass #2</span>
-              <span class="text-xs text-slate-400 font-semibold">1,050 Words</span>
-            </div>
-            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Lossy vs Lossless Compression</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pelajari perbedaan algoritma kompresi untuk menentukan kualitas dan ukuran file terbaik.</p>
-          </div>
-          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <span class="text-xs font-extrabold text-blue-600 hover:underline">Read Masterclass →</span>
-            <span class="text-xs font-bold bg-blue-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
-          </div>
-        </div>
-
-        <!-- Panel 3 -->
-        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-purple-500/20" onclick="openModal('Client-Side Processing & Data Privacy Benefits', 'Masterclass #3', `
-          <div class='mb-4 bg-gradient-to-r from-purple-500/15 to-pink-500/15 p-4 rounded-2xl border border-purple-500/20 text-center'>
-            <span class='text-4xl'>🛡️</span>
-            <p class='text-xs font-bold text-purple-600 dark:text-purple-400 mt-2'>Zero Server Upload Security</p>
-          </div>
-          <h3>Why Browser-Based Processing is Superior</h3>
-          <p>Traditional online image editors require uploading your confidential photos, passport scans, or professional artwork to third-party remote servers. This introduces significant privacy risks and network latency[cite: 5].</p>
-          <p>OmniImage leverages advanced HTML5 Canvas and Web APIs to execute all transformations entirely inside your local web browser sandbox. Your images never leave your device[cite: 5].</p>
-          <ul>
-            <li><strong>Absolute Privacy:</strong> Zero risk of data breaches or unauthorized server retention[cite: 5].</li>
-            <li><strong>Instant Speeds:</strong> No waiting for file uploads and downloads over slow internet connections[cite: 5].</li>
-            <li><strong>Offline Capability:</strong> Process images anywhere, anytime[cite: 5].</li>
-          </ul>
-        `)">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-purple-50 dark:bg-purple-950 text-purple-600 border border-purple-200">Masterclass #3</span>
-              <span class="text-xs text-slate-400 font-semibold">900 Words</span>
-            </div>
-            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Client-Side Processing & Privacy</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Ketahui keunggulan pemrosesan lokal berbasis browser untuk keamanan data pribadi Anda.</p>
-          </div>
-          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <span class="text-xs font-extrabold text-purple-600 hover:underline">Read Masterclass →</span>
-            <span class="text-xs font-bold bg-purple-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
-          </div>
-        </div>
-
-      </div>
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3 leading-tight">
+        Optimize, Convert & Edit <span class="gradient-text">Instantly.</span>
+      </h1>
+      <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium leading-relaxed">
+        Full professional-grade image processing directly in your browser. Zero server uploads, instant results.
+      </p>
     </section>
 
-  </main>
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
 
-  <!-- MODAL POPUP FOR EXPERT PANELS -->
-  <div id="articleModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden p-4">
-    <div class="pastel-card w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 md:p-8 space-y-6 relative shadow-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
-      <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
-        <span id="modalBadge" class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-600 text-white">Badge</span>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl font-black px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800">✕</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- TOOL 1: COMPRESS IMAGE -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🗜️</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Compress Image</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Reduce file size of JPG/PNG images with precision quality control.</p>
+            
+            <input type="file" id="compressInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'compress')">
+            <label for="compressInput" id="compressDropZone" class="block w-full border-2 border-dashed border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 rounded-2xl p-4 text-center cursor-pointer bg-emerald-50/50 dark:bg-emerald-950/30 transition mb-3">
+              <span class="text-xs font-bold text-emerald-700 dark:text-emerald-300 block" id="compressLabel">Click or Drop Image Here</span>
+            </label>
+
+            <div class="mb-4">
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-500">Quality:</span>
+                <span id="qualityVal" class="text-emerald-600 dark:text-emerald-400 font-bold">80%</span>
+              </div>
+              <input type="range" id="qualityRange" min="10" max="100" value="80" class="w-full accent-emerald-600 cursor-pointer" oninput="document.getElementById('qualityVal').innerText = this.value + '%'">
+            </div>
+          </div>
+          <button onclick="processCompress()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Compress & Download</button>
+        </div>
+
+        <!-- TOOL 2: RESIZE IMAGE -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">📐</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Resize Image</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Change custom width and height dimensions in pixels easily.</p>
+            
+            <input type="file" id="resizeInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'resize')">
+            <label for="resizeInput" id="resizeDropZone" class="block w-full border-2 border-dashed border-blue-200 dark:border-blue-800 hover:border-blue-400 rounded-2xl p-3 text-center cursor-pointer bg-blue-50/50 dark:bg-blue-950/30 transition mb-3">
+              <span class="text-xs font-bold text-blue-700 dark:text-blue-300 block" id="resizeLabel">Click or Drop Image Here</span>
+            </label>
+
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 block mb-1">Width (px):</label>
+                <input type="number" id="resizeWidth" value="800" class="w-full bg-slate-50 dark:bg-slate-800 border border-blue-200 dark:border-blue-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 block mb-1">Height (px):</label>
+                <input type="number" id="resizeHeight" value="600" class="w-full bg-slate-50 dark:bg-slate-800 border border-blue-200 dark:border-blue-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none">
+              </div>
+            </div>
+          </div>
+          <button onclick="processResize()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Resize & Download</button>
+        </div>
+
+        <!-- TOOL 3: FORMAT CONVERTER -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🔄</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Image Converter</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Convert images seamlessly between JPG, PNG, and WebP formats.</p>
+            
+            <input type="file" id="convertInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'convert')">
+            <label for="convertInput" id="convertDropZone" class="block w-full border-2 border-dashed border-purple-200 dark:border-purple-800 hover:border-purple-400 rounded-2xl p-3 text-center cursor-pointer bg-purple-50/50 dark:bg-purple-950/30 transition mb-3">
+              <span class="text-xs font-bold text-purple-700 dark:text-purple-300 block" id="convertLabel">Click or Drop Image Here</span>
+            </label>
+
+            <div class="mb-3">
+              <label class="text-[10px] font-bold text-slate-500 block mb-1">Target Format:</label>
+              <select id="targetFormat" class="w-full bg-slate-50 dark:bg-slate-800 border border-purple-200 dark:border-purple-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
+                <option value="image/jpeg">JPG / JPEG</option>
+                <option value="image/png">PNG</option>
+                <option value="image/webp">WebP</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="processConvert()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Convert & Download</button>
+        </div>
+
+        <!-- TOOL 4: ROTATE & FLIP -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/60 text-amber-600 dark:text-amber-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">🔃</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Rotate & Flip</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Rotate images by 90 degrees or mirror flip them horizontally.</p>
+            
+            <input type="file" id="rotateInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'rotate')">
+            <label for="rotateInput" id="rotateDropZone" class="block w-full border-2 border-dashed border-amber-200 dark:border-amber-800 hover:border-amber-400 rounded-2xl p-3 text-center cursor-pointer bg-amber-50/50 dark:bg-amber-950/30 transition mb-3">
+              <span class="text-xs font-bold text-amber-700 dark:text-amber-300 block" id="rotateLabel">Click or Drop Image Here</span>
+            </label>
+
+            <div class="mb-3">
+              <label class="text-[10px] font-bold text-slate-500 block mb-1">Action Type:</label>
+              <select id="rotateAction" class="w-full bg-slate-50 dark:bg-slate-800 border border-amber-200 dark:border-amber-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
+                <option value="90">Rotate 90° Clockwise</option>
+                <option value="180">Rotate 180°</option>
+                <option value="270">Rotate 270° Clockwise</option>
+                <option value="flipH">Flip Horizontally</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="processRotate()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Rotate & Download</button>
+        </div>
+
+        <!-- TOOL 5: FILTERS & EFFECTS -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">✨</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Filters & Effects</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-4">Apply stunning visual effects like Grayscale or Color Inversion.</p>
+            
+            <input type="file" id="filterInput" accept="image/*" class="hidden" onchange="handleFileSelect(this, 'filter')">
+            <label for="filterInput" id="filterDropZone" class="block w-full border-2 border-dashed border-rose-200 dark:border-rose-800 hover:border-rose-400 rounded-2xl p-3 text-center cursor-pointer bg-rose-50/50 dark:bg-rose-950/30 transition mb-3">
+              <span class="text-xs font-bold text-rose-700 dark:text-rose-300 block" id="filterLabel">Click or Drop Image Here</span>
+            </label>
+
+            <div class="mb-3">
+              <label class="text-[10px] font-bold text-slate-500 block mb-1">Select Filter:</label>
+              <select id="filterType" class="w-full bg-slate-50 dark:bg-slate-800 border border-rose-200 dark:border-rose-800 rounded-xl p-2 text-xs text-slate-800 dark:text-slate-100 focus:outline-none font-semibold cursor-pointer">
+                <option value="grayscale">Grayscale (Black & White)</option>
+                <option value="invert">Invert Colors</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="processFilter()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 rounded-2xl transition shadow-md text-xs">Apply & Download</button>
+        </div>
+
+        <!-- LIVE PREVIEW CARD -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300 rounded-2xl flex items-center justify-center text-xl mb-4 font-bold">👁️</div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-1">Live Preview & Stats</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Result summary and direct preview display.</p>
+            
+            <div id="previewContainer" class="w-full h-32 bg-slate-100 dark:bg-slate-800/80 rounded-2xl border border-indigo-100 dark:border-indigo-900 flex items-center justify-center overflow-hidden mb-3 relative">
+              <span class="text-xs text-slate-400 font-medium">No output generated yet</span>
+            </div>
+            
+            <div id="statsText" class="text-[11px] font-semibold text-slate-600 dark:text-slate-300 space-y-1">
+              <div>Original Size: <span id="statOrig">-</span></div>
+              <div>New Size: <span id="statNew">-</span></div>
+            </div>
+          </div>
+          <div id="downloadBtnContainer" class="mt-4">
+            <button disabled class="w-full bg-slate-300 dark:bg-slate-800 text-slate-500 font-bold py-3 rounded-2xl text-xs cursor-not-allowed">Ready for Download</button>
+          </div>
+        </div>
+
       </div>
-      <h2 id="modalTitle" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight">Title</h2>
-      <div id="modalBody" class="modal-content space-y-4 text-slate-700 dark:text-slate-300"></div>
-      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-        <button onclick="window.print()" class="text-xs font-bold text-emerald-600 hover:underline">🖨 Print Article</button>
-        <button onclick="closeModal()" class="bg-emerald-600 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-lg">Close Panel</button>
-      </div>
+
+      <!-- INTERACTIVE CLICKABLE EXPERT EDITORIAL PANELS SECTION -->
+      <section id="editorial-panels" class="pt-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-200">Knowledge Hub</span>
+          <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">Expert Image Processing Guides</h2>
+          <p class="text-sm text-slate-500">Klik pada salah satu panel di bawah ini untuk membuka halaman artikel mendalam secara penuh (*full-screen view*).</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Panel 1 -->
+          <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-emerald-500/20" onclick="openFullArticle('The Ultimate Guide to Next-Gen Image Formats (WebP)', 'Masterclass #1', `
+            <div class='mb-6 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 p-6 rounded-3xl border border-emerald-500/25 text-center'>
+              <span class='text-5xl'>🚀</span>
+              <p class='text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-3'>WebP Performance Optimization Masterclass</p>
+            </div>
+            <h3>Why WebP Dominates Modern Web Speed</h3>
+            <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster[cite: 5].</p>
+            <p>Compared to traditional PNG and JPEG formats, WebP lossless images are up to 26% smaller, and WebP lossy images are 25-34% smaller at equivalent structural similarity (SSIM) quality index[cite: 5]. This massive reduction directly boosts your site's Core Web Vitals performance score.</p>
+            <ul>
+              <li><strong>Smaller Payloads:</strong> Drastically reduces Largest Contentful Paint (LCP) times[cite: 5].</li>
+              <li><strong>Alpha Transparency:</strong> Supports transparency just like PNG while maintaining smaller sizes[cite: 5].</li>
+              <li><strong>Universal Browser Support:</strong> Fully supported across all modern web browsers and mobile ecosystems[cite: 5].</li>
+            </ul>
+          `)">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-50 dark:bg-emerald-950 text-emerald-600 border border-emerald-200">Masterclass #1</span>
+                <span class="text-xs text-slate-400 font-semibold">1,200 Words</span>
+              </div>
+              <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Guide to Next-Gen WebP Formats</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pahami bagaimana format WebP mempercepat loading situs web hingga 30% dibandingkan JPEG konvensional.</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <span class="text-xs font-extrabold text-emerald-600 hover:underline">Read Full Article →</span>
+              <span class="text-xs font-bold bg-emerald-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Full View</span>
+            </div>
+          </div>
+
+          <!-- Panel 2 -->
+          <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-blue-500/20" onclick="openFullArticle('Lossy vs Lossless Image Compression Explained', 'Masterclass #2', `
+            <div class='mb-6 bg-gradient-to-r from-blue-500/15 to-purple-500/15 p-6 rounded-3xl border border-blue-500/25 text-center'>
+              <span class='text-5xl'>🗜️</span>
+              <p class='text-sm font-bold text-blue-600 dark:text-blue-400 mt-3'>Compression Algorithms Deep Dive</p>
+            </div>
+            <h3>Choosing the Right Compression Strategy</h3>
+            <p>Image compression is the art of reducing file sizes without sacrificing noticeable visual fidelity. Understanding the difference between lossy and lossless algorithms is critical for photographers and web designers[cite: 5].</p>
+            <p>Lossless compression retains every single bit of original data, meaning the restored image is an exact replica of the original[cite: 5]. Lossy compression permanently removes redundant pixel data that human eyes can hardly perceive[cite: 5].</p>
+            <ul>
+              <li><strong>Lossless (PNG):</strong> Ideal for logos, graphics, and medical imaging where exact precision is required[cite: 5].</li>
+              <li><strong>Lossy (JPG/WebP):</strong> Perfect for digital photography and complex web backgrounds where massive file reduction is needed[cite: 5].</li>
+            </ul>
+          `)">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-blue-50 dark:bg-blue-950 text-blue-600 border border-blue-200">Masterclass #2</span>
+                <span class="text-xs text-slate-400 font-semibold">1,050 Words</span>
+              </div>
+              <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Lossy vs Lossless Compression</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pelajari perbedaan algoritma kompresi untuk menentukan kualitas dan ukuran file terbaik.</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <span class="text-xs font-extrabold text-blue-600 hover:underline">Read Full Article →</span>
+              <span class="text-xs font-bold bg-blue-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Full View</span>
+            </div>
+          </div>
+
+          <!-- Panel 3 -->
+          <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-purple-500/20" onclick="openFullArticle('Client-Side Processing & Data Privacy Benefits', 'Masterclass #3', `
+            <div class='mb-6 bg-gradient-to-r from-purple-500/15 to-pink-500/15 p-6 rounded-3xl border border-purple-500/25 text-center'>
+              <span class='text-5xl'>🛡️</span>
+              <p class='text-sm font-bold text-purple-600 dark:text-purple-400 mt-3'>Zero Server Upload Security Guide</p>
+            </div>
+            <h3>Why Browser-Based Processing is Superior</h3>
+            <p>Traditional online image editors require uploading your confidential photos, passport scans, or professional artwork to third-party remote servers. This introduces significant privacy risks and network latency[cite: 5].</p>
+            <p>OmniImage leverages advanced HTML5 Canvas and Web APIs to execute all transformations entirely inside your local web browser sandbox. Your images never leave your device[cite: 5].</p>
+            <ul>
+              <li><strong>Absolute Privacy:</strong> Zero risk of data breaches or unauthorized server retention[cite: 5].</li>
+              <li><strong>Instant Speeds:</strong> No waiting for file uploads and downloads over slow internet connections[cite: 5].</li>
+              <li><strong>Offline Capability:</strong> Process images anywhere, anytime[cite: 5].</li>
+            </ul>
+          `)">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-purple-50 dark:bg-purple-950 text-purple-600 border border-purple-200">Masterclass #3</span>
+                <span class="text-xs text-slate-400 font-semibold">900 Words</span>
+              </div>
+              <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Client-Side Processing & Privacy</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Ketahui keunggulan pemrosesan lokal berbasis browser untuk keamanan data pribadi Anda.</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <span class="text-xs font-extrabold text-purple-600 hover:underline">Read Full Article →</span>
+              <span class="text-xs font-bold bg-purple-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Full View</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FULL PAGE ARTICLE VIEW (HIDDEN BY DEFAULT) -->
+  <div id="articleFullView" class="hidden max-w-4xl mx-auto px-6 py-12 flex-1 w-full space-y-8">
+    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-6">
+      <button onclick="closeFullArticle()" class="inline-flex items-center gap-2 text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-5 py-2.5 rounded-2xl border border-emerald-200 dark:border-emerald-800 shadow-sm transition hover:scale-105">
+        ← Kembali ke Beranda
+      </button>
+      <span id="fullArticleBadge" class="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-600 text-white">Badge</span>
+    </div>
+    <div class="space-y-4">
+      <h1 id="fullArticleTitle" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight">Title</h1>
+      <div class="text-xs text-slate-400 font-semibold pb-4 border-b border-slate-200 dark:border-slate-800">Published by OmniImage Editorial Team • 2026 Edition</div>
+    </div>
+    <div id="fullArticleBody" class="article-body space-y-6 text-slate-700 dark:text-slate-300"></div>
+    <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <button onclick="window.print()" class="text-xs font-bold text-emerald-600 hover:underline">🖨 Cetak Artikel Ini</button>
+      <button onclick="closeFullArticle()" class="bg-emerald-600 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-lg">Kembali ke Alat Utama</button>
     </div>
   </div>
 
@@ -458,18 +451,21 @@
       }
     }
 
-    // Modal Control Functions
-    function openModal(title, badge, content) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalBadge').innerText = badge;
-      document.getElementById('modalBody').innerHTML = content;
-      document.getElementById('articleModal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+    // Full Page Article View Control Functions
+    function openFullArticle(title, badge, content) {
+      document.getElementById('fullArticleTitle').innerText = title;
+      document.getElementById('fullArticleBadge').innerText = badge;
+      document.getElementById('fullArticleBody').innerHTML = content;
+      
+      document.getElementById('homeView').classList.add('hidden');
+      document.getElementById('articleFullView').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeModal() {
-      document.getElementById('articleModal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
+    function closeFullArticle() {
+      document.getElementById('articleFullView').classList.add('hidden');
+      document.getElementById('homeView').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     const filesCache = { compress: null, resize: null, convert: null, rotate: null, filter: null };
