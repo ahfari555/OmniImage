@@ -65,6 +65,24 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .hero-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(5,150,105,0.12) 0%, rgba(37,99,235,0.05) 70%, transparent 100%);
+      z-index: 0;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .modal-content h3 { font-size: 1.35rem; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #059669; }
+    html.dark .modal-content h3 { color: #34d399; }
+    .modal-content p { font-size: 0.95rem; line-height: 1.8; color: #475569; margin-bottom: 1rem; }
+    html.dark .modal-content p { color: #cbd5e1; }
+    .modal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
+    html.dark .modal-content ul { color: #cbd5e1; }
+    .modal-content li { margin-bottom: 0.4rem; }
+    @keyframes pulse-slow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+    .animate-pulse-slow { animation: pulse-slow 4s infinite ease-in-out; }
   </style>
 </head>
 <body class="font-sans min-h-screen flex flex-col antialiased text-slate-800 dark:text-slate-100">
@@ -80,6 +98,7 @@
       </a>
 
       <div class="flex items-center gap-3">
+        <a href="#editorial-panels" class="hidden md:inline-flex text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">📚 Expert Guides</a>
         <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 100% Private & Client-Side
         </span>
@@ -90,9 +109,32 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center">
+  <!-- HERO SECTION WITH CUSTOM SVG ILLUSTRATION -->
+  <div class="hero-glow top-20 left-1/2 -translate-x-1/2"></div>
+  <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center relative z-10">
     <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-100 dark:border-emerald-900 mb-3 inline-block">Pro Image Processing Suite</span>
+    
+    <!-- CUSTOM SVG HERO ILLUSTRATION -->
+    <div class="max-w-sm mx-auto my-6 animate-pulse-slow">
+      <svg viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-xl">
+        <defs>
+          <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#059669" />
+            <stop offset="50%" stop-color="#2563eb" />
+            <stop offset="100%" stop-color="#9333ea" />
+          </linearGradient>
+        </defs>
+        <rect x="30" y="20" width="340" height="140" rx="24" fill="url(#heroGrad)" fill-opacity="0.08" stroke="url(#heroGrad)" stroke-width="2" stroke-dasharray="6 4" />
+        <circle cx="120" cy="90" r="35" fill="url(#heroGrad)" fill-opacity="0.2" />
+        <path d="M 80 120 L 140 70 L 190 110 L 230 85 L 300 120 Z" fill="url(#heroGrad)" fill-opacity="0.4" />
+        <circle cx="280" cy="65" r="15" fill="url(#heroGrad)" fill-opacity="0.6" />
+        <g transform="translate(140, 25)">
+          <rect width="120" height="32" rx="10" fill="#ffffff" class="dark:fill-slate-800" stroke="#059669" stroke-width="1.5" />
+          <text x="60" y="20" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold">⚡ WebP / JPG / PNG</text>
+        </g>
+      </svg>
+    </div>
+
     <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3">
       Optimize, Convert & Edit <span class="gradient-text">Instantly.</span>
     </h1>
@@ -250,7 +292,122 @@
 
     </div>
 
+    <!-- INTERACTIVE CLICKABLE EXPERT EDITORIAL PANELS SECTION -->
+    <section id="editorial-panels" class="pt-8">
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-200">Knowledge Hub</span>
+        <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">Expert Image Processing Guides</h2>
+        <p class="text-sm text-slate-500">Klik pada salah satu panel di bawah ini untuk membuka panduan mendalam seputar optimasi WebP, kompresi lossy vs lossless, dan performa web.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Panel 1 -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-emerald-500/20" onclick="openModal('The Ultimate Guide to Next-Gen Image Formats (WebP)', 'Masterclass #1', `
+          <div class='mb-4 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 p-4 rounded-2xl border border-emerald-500/20 text-center'>
+            <span class='text-4xl'>🚀</span>
+            <p class='text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-2'>WebP Performance Optimization</p>
+          </div>
+          <h3>Why WebP Dominates Modern Web Speed</h3>
+          <p>WebP is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster.</p>
+          <p>Compared to traditional PNG and JPEG formats, WebP lossless images are up to 26% smaller, and WebP lossy images are 25-34% smaller at equivalent structural similarity (SSIM) quality index.</p>
+          <ul>
+            <li><strong>Smaller Payloads:</strong> Drastically reduces Core Web Vitals Largest Contentful Paint (LCP) times.</li>
+            <li><strong>Alpha Transparency:</strong> Supports transparency just like PNG while maintaining smaller sizes.</li>
+            <li><strong>Browser Support:</strong> Fully supported across all modern browsers and mobile devices.</li>
+          </ul>
+        `)">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-50 dark:bg-emerald-950 text-emerald-600 border border-emerald-200">Masterclass #1</span>
+              <span class="text-xs text-slate-400 font-semibold">1,200 Words</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Guide to Next-Gen WebP Formats</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pahami bagaimana format WebP mempercepat loading situs web hingga 30% dibandingkan JPEG konvensional.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+            <span class="text-xs font-extrabold text-emerald-600 hover:underline">Read Masterclass →</span>
+            <span class="text-xs font-bold bg-emerald-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-blue-500/20" onclick="openModal('Lossy vs Lossless Image Compression Explained', 'Masterclass #2', `
+          <div class='mb-4 bg-gradient-to-r from-blue-500/15 to-purple-500/15 p-4 rounded-2xl border border-blue-500/20 text-center'>
+            <span class='text-4xl'>🗜️</span>
+            <p class='text-xs font-bold text-blue-600 dark:text-blue-400 mt-2'>Compression Algorithms Deep Dive</p>
+          </div>
+          <h3>Choosing the Right Compression Strategy</h3>
+          <p>Image compression is the art of reducing file sizes without sacrificing noticeable visual fidelity. Understanding the difference between lossy and lossless algorithms is critical for photographers and web designers.</p>
+          <p>Lossless compression retains every single bit of original data, meaning the restored image is an exact replica of the original. Lossy compression permanently removes redundant pixel data that human eyes can hardly perceive.</p>
+          <ul>
+            <li><strong>Lossless (PNG):</strong> Ideal for logos, graphics, and medical imaging where exact precision is required.</li>
+            <li><strong>Lossy (JPG/WebP):</strong> Perfect for digital photography and complex web backgrounds where massive file reduction is needed.</li>
+          </ul>
+        `)">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-blue-50 dark:bg-blue-950 text-blue-600 border border-blue-200">Masterclass #2</span>
+              <span class="text-xs text-slate-400 font-semibold">1,050 Words</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Lossy vs Lossless Compression</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Pelajari perbedaan algoritma kompresi untuk menentukan kualitas dan ukuran file terbaik.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+            <span class="text-xs font-extrabold text-blue-600 hover:underline">Read Masterclass →</span>
+            <span class="text-xs font-bold bg-blue-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between space-y-4 hover:scale-[1.02] transition cursor-pointer border border-purple-500/20" onclick="openModal('Client-Side Processing & Data Privacy Benefits', 'Masterclass #3', `
+          <div class='mb-4 bg-gradient-to-r from-purple-500/15 to-pink-500/15 p-4 rounded-2xl border border-purple-500/20 text-center'>
+            <span class='text-4xl'>🛡️</span>
+            <p class='text-xs font-bold text-purple-600 dark:text-purple-400 mt-2'>Zero Server Upload Security</p>
+          </div>
+          <h3>Why Browser-Based Processing is Superior</h3>
+          <p>Traditional online image editors require uploading your confidential photos, passport scans, or professional artwork to third-party remote servers. This introduces significant privacy risks and network latency.</p>
+          <p>OmniImage leverages advanced HTML5 Canvas and Web APIs to execute all transformations entirely inside your local web browser sandbox. Your images never leave your device.</p>
+          <ul>
+            <li><strong>Absolute Privacy:</strong> Zero risk of data breaches or unauthorized server retention.</li>
+            <li><strong>Instant Speeds:</strong> No waiting for file uploads and downloads over slow internet connections.</li>
+            <li><strong>Offline Capability:</strong> Process images anywhere, anytime.</li>
+          </ul>
+        `)">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase bg-purple-50 dark:bg-purple-950 text-purple-600 border border-purple-200">Masterclass #3</span>
+              <span class="text-xs text-slate-400 font-semibold">900 Words</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2">Client-Side Processing & Privacy</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">Ketahui keunggulan pemrosesan lokal berbasis browser untuk keamanan data pribadi Anda.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+            <span class="text-xs font-extrabold text-purple-600 hover:underline">Read Masterclass →</span>
+            <span class="text-xs font-bold bg-purple-600 text-white px-3 py-1.5 rounded-lg shadow-md">Open Panel</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
+
+  <!-- MODAL POPUP FOR EXPERT PANELS -->
+  <div id="articleModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden p-4">
+    <div class="pastel-card w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 md:p-8 space-y-6 relative shadow-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+        <span id="modalBadge" class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-600 text-white">Badge</span>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl font-black px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800">✕</button>
+      </div>
+      <h2 id="modalTitle" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight">Title</h2>
+      <div id="modalBody" class="modal-content space-y-4 text-slate-700 dark:text-slate-300"></div>
+      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <button onclick="window.print()" class="text-xs font-bold text-emerald-600 hover:underline">🖨️️ Print Article</button>
+        <button onclick="closeModal()" class="bg-emerald-600 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-lg">Close Panel</button>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="border-t border-emerald-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-xs text-slate-500 dark:text-slate-400 font-medium mt-12">
@@ -276,6 +433,20 @@
         document.documentElement.classList.add('dark');
         document.getElementById('themeIcon').innerText = '☀️';
       }
+    }
+
+    // Modal Control Functions
+    function openModal(title, badge, content) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalBadge').innerText = badge;
+      document.getElementById('modalBody').innerHTML = content;
+      document.getElementById('articleModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('articleModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
 
     const filesCache = { compress: null, resize: null, convert: null, rotate: null, filter: null };
@@ -434,11 +605,11 @@
           for (let i = 0; i < data.length; i += 4) {
             if(filterType === 'grayscale') {
               let avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-              data[i] = avg;     // R
+              data[i] = avg;    // R
               data[i + 1] = avg; // G
               data[i + 2] = avg; // B
             } else if(filterType === 'invert') {
-              data[i] = 255 - data[i];       // R
+              data[i] = 255 - data[i];      // R
               data[i + 1] = 255 - data[i + 1]; // G
               data[i + 2] = 255 - data[i + 2]; // B
             }
